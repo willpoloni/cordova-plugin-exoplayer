@@ -9,6 +9,23 @@
 
     <!-- Control button bar -->
     <LinearLayout
+        android:id="@id/exo_close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:gravity="top"
+        android:orientation="horizontal">
+		<ImageButton
+			  android:id="@+id/exo_close"
+			  style="@style/ExoMediaButton"
+			  android:layout_gravity="start"
+			  android:layout_marginStart="8dp"
+			  android:layout_marginTop="8dp"
+			  android:background="@drawable/close"
+			  app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"/>
+	</LinearLayout>
+
+    <LinearLayout
         android:id="@id/exo_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,9 +51,9 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:background="@layout/exo_rounded_corners"
-        android:layout_marginLeft="48dp"
-        android:layout_marginBottom="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:paddingTop="@dimen/padding"
         android:paddingBottom="@dimen/padding"
         android:paddingLeft="@dimen/padding"
@@ -48,8 +65,9 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:maxHeight="86dp"
-            android:maxWidth="144dp"
+            android:maxWidth="44dp"
             android:adjustViewBounds="true"
+			android:visibility = "gone"
             android:scaleType="centerInside"/>
         <!-- Right -->
         <LinearLayout
@@ -66,9 +84,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:textSize="28dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:includeFontPadding="false"
+				android:visibility = "gone"
                 android:textColor="@color/foreground_color"/>
 
             <!-- Second line -->
@@ -77,9 +96,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:textSize="20dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:includeFontPadding="false"
+				android:visibility = "gone"
                 android:textColor="@color/foreground_color"/>
 
             <!-- Third line -->
@@ -93,7 +113,7 @@
                 <TextView android:id="@id/exo_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                     android:paddingRight="8dp"
                     android:includeFontPadding="false"
@@ -110,7 +130,7 @@
                 <TextView android:id="@id/exo_duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                     android:paddingLeft="8dp"
                     android:includeFontPadding="false"

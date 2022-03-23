@@ -31,6 +31,7 @@ import android.net.*;
 import android.os.*;
 import android.util.*;
 import android.view.*;
+import android.view.View;
 import android.widget.*;
 import com.google.android.exoplayer2.*;
 import com.google.android.exoplayer2.extractor.*;
@@ -107,7 +108,7 @@ public class Player {
         public void onRepeatModeChanged(int newRepeatMode) {
             // Need to see if we want to send this to Cordova.
         }
-    
+
         @Override
         public void onSeekProcessed() {
         }
@@ -237,6 +238,11 @@ public class Player {
         exoView.requestFocus();
         exoView.setOnTouchListener(onTouchListener);
         LayoutProvider.setupController(exoView, activity, config.getController());
+		try {
+			LayoutProvider.setCloseButton(exoView, activity, new ComponentListenerClose());
+		} finally {
+
+		}
     }
 
     private int setupAudio() {
@@ -383,7 +389,9 @@ public class Player {
 
     public void stop() {
         paused = false;
-        exoPlayer.stop();
+		if (null != exoPlayer) {
+        	exoPlayer.stop();
+		}
     }
 
     private long normalizeOffset(long newTime) {
@@ -433,5 +441,13 @@ public class Player {
         Log.e(TAG, msg);
         JSONObject payload = Payload.playerErrorEvent(Player.this.exoPlayer, null, msg);
         new CallbackResponse(Player.this.callbackContext).send(PluginResult.Status.ERROR, payload, true);
-    }   
+    }
+
+	private final class ComponentListenerClose
+      implements com.google.android.exoplayer2.Player.EventListener, View.OnClickListener {
+		@Override
+    	public void onClick(View view) {
+	   		close();
+   		}
+	}
 }

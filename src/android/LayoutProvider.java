@@ -36,7 +36,7 @@ import org.json.*;
 import com.squareup.picasso.*;
 
 public class LayoutProvider {
-    private enum BUTTON { exo_prev, exo_rew, exo_play, exo_pause, exo_ffwd, exo_next }
+    private enum BUTTON { exo_prev, exo_rew, exo_play, exo_pause, exo_ffwd, exo_next, exo_close }
 
     public static FrameLayout getMainLayout(Activity activity) {
         FrameLayout view = new FrameLayout(activity);
@@ -164,6 +164,10 @@ public class LayoutProvider {
             }
         }
     }
+
+	public static void setCloseButton(SimpleExoPlayerView parentView, Activity activity, View.OnClickListener callbackContext) {
+			findView(parentView, activity, "exo_close").setOnClickListener(callbackContext);
+	}
 
     private static void setupBuffering(SimpleExoPlayerView parentView, Activity activity, JSONObject controller) {
         String bufferingColor = controller.optString("bufferingColor");

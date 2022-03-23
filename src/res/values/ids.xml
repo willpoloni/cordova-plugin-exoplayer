@@ -6,4 +6,5 @@
     <item name="exo_subtitle" type="id"/>
     <item name="exo_timebar" type="id"/>
     <item name="exo_buffering" type="id"/>
+    <item name="exo_close_button" type="id"/>
 </resources>
