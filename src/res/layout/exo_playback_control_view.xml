@@ -12,17 +12,12 @@
         android:id="@id/exo_close_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
+        android:layout_gravity="right"
         android:gravity="top"
         android:orientation="horizontal">
 		<ImageButton
-			  android:id="@+id/exo_close"
-			  style="@style/ExoMediaButton"
-			  android:layout_gravity="start"
-			  android:layout_marginStart="8dp"
-			  android:layout_marginTop="8dp"
-			  android:background="@drawable/close"
-			  app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"/>
+            android:id="@+id/exo_close"  
+            style="@style/Exo.Close"/>
 	</LinearLayout>
 
     <LinearLayout
